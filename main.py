@@ -1,4 +1,5 @@
 from memory import Memory
+from cpu import CPU
 
 def main():
     
@@ -11,5 +12,11 @@ def main():
     print (value)
     
     memory.dump(8,13)
+    
+    
+    cpu = CPU()
+    
+    cpu.dumb_state()
+    
     
 main()
