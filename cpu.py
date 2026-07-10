@@ -1,3 +1,4 @@
+from alu import ALU
 class CPU:
     def __init__(self):
         self.registers = {
@@ -16,6 +17,12 @@ class CPU:
             "C": False,
             "V": False,
         }
+        
+        self.alu = ALU()
+    
+    def uptade_flags(self, result):
+        self.flags["Z"] = result == 0
+        self.flags["N"] = result < 0
         
     def dumb_state(self):
         print ("==== ESTADO DA CPU ==== ")

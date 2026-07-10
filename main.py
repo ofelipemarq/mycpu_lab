@@ -2,21 +2,17 @@ from memory import Memory
 from cpu import CPU
 
 def main():
-    
-    memory = Memory()
-    
-    memory.write(10, 37)
-    
-    value = memory.read(10)
-    
-    print (value)
-    
-    memory.dump(8,13)
-    
-    
-    cpu = CPU()
-    
-    cpu.dumb_state()
-    
+   cpu = CPU()
+   
+   cpu.registers["R1"] = 8
+   cpu.registers["R2"] = 13
+   
+   result = cpu.alu.add(cpu.registers["R1"], cpu.registers["R2"])
+   
+   cpu.registers ["R1"] = result
+   cpu.uptade_flags(result)
+   
+   cpu.dumb_state() 
+   
     
 main()
