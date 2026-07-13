@@ -19,12 +19,24 @@ class CPU:
         }
         
         self.alu = ALU()
+        self.program = []
+        
+    def load_program(self, program):
+        self.program = program
+        self.pc = 0
+        self.ir = None
+        
     
     def uptade_flags(self, result):
         self.flags["Z"] = result == 0
         self.flags["N"] = result < 0
         
-    def dumb_state(self):
+    def dump_program(self):
+        print ("===" * 50)
+        for adress, instruction in enumerate(self.program):
+            print(f"{adress}: {instruction}")
+        
+    def dump_state(self):
         print ("==== ESTADO DA CPU ==== ")
         
         print("\n REGISTRADORES: ")
